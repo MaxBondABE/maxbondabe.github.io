@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://maxbondabe.github.io/sqigl/sitemap.xml

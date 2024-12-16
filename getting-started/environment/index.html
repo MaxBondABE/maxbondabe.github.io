@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>
+            
+                Development environment |
+            
+            sqigl - the SQL build tool
+        </title>
+
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        
+
+
+<nav class="right">
+    <aside>
+        <label class="toc_label material" tabindex=1>
+            toc
+            <input type="radio" name="toc" class="invisible" id="toc_ctrl"/>
+        </label>
+        <label class="toc_label material" tabindex=1>
+            close
+            <input type="radio" name="toc" class="invisible" checked/>
+        </label>
+    </aside>
+    <aside>
+        <a href="/" class="material" tabindex=5>
+            home
+        </a>
+        <a href="https://github.com/maxbondabe/sqigl" tabindex=5>
+            <img src="/gh.svg" />
+        </a>
+    </aside>
+    <aside>
+        
+            <p class="placeholder"></p>
+        
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;getting-started&#x2F; class="material" tabindex=3>
+            arrow_upward
+        </a>
+        
+            <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;getting-started&#x2F;migrating-to-sqigl&#x2F; class="material" tabindex=4>
+                arrow_forward
+            </a>
+        
+    </aside>
+</nav>
+
+<nav class="toc">
+    <h1>Contents</h1>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;getting-started&#x2F;environment&#x2F;#postgres>
+            Postgres
+        </a>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;getting-started&#x2F;environment&#x2F;#sqlite>
+            SQLite
+        </a>
+    
+</nav>
+
+<main class="page">
+    <h1 id="development-environment">Development environment</h1>
+
+    <article>
+        <h1 id="postgres">Postgres</h1>
+<h2 id="setting-up-a-local-database">Setting up a local database</h2>
+<ul>
+<li>If you are working with Postgres, you will need to set up a database locally.</li>
+<li>The easiest way to get started is using <a href="https://docs.docker.com/compose/">Docker compose</a></li>
+<li>You can use the following compose file.</li>
+</ul>
+<pre data-lang="yaml" style="background-color:#2b303b;color:#c0c5ce;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">services</span><span>:
+</span><span>  </span><span style="color:#bf616a;">postgres</span><span>:
+</span><span>    </span><span style="color:#bf616a;">image</span><span>: &quot;</span><span style="color:#a3be8c;">postgres:15.2-bullseye</span><span>&quot;
+</span><span>    </span><span style="color:#bf616a;">environment</span><span>:
+</span><span>      </span><span style="color:#bf616a;">POSTGRES_USER</span><span>: &quot;</span><span style="color:#a3be8c;">sqigl</span><span>&quot;
+</span><span>      </span><span style="color:#bf616a;">POSTGRES_PASSWORD</span><span>: &quot;</span><span style="color:#a3be8c;">password</span><span>&quot;
+</span><span>      </span><span style="color:#bf616a;">POSTGRES_DB</span><span>: &quot;</span><span style="color:#a3be8c;">sqigl</span><span>&quot;
+</span><span>    </span><span style="color:#bf616a;">ports</span><span>:
+</span><span>        - &quot;</span><span style="color:#a3be8c;">5432:5432</span><span>&quot;
+</span></code></pre>
+<ul>
+<li>Add the following line to your <a href="https://www.postgresql.org/docs/current/libpq-pgpass.html"><code>pgpass</code> file</a>
+to access the database with <code>psql</code>.</li>
+</ul>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>localhost:5432:sqigl:sqigl:password
+</span></code></pre>
+<ul>
+<li>If you want to configure Postgres yourself, make sure that <code>sqigl</code> has the
+ability to create &amp; delete databases.</li>
+</ul>
+<h2 id="connecting-to-a-production-database">Connecting to a production database</h2>
+<ul>
+<li>Use a <a href="https://www.postgresql.org/docs/current/libpq-pgpass.html"><code>pgpass</code> file</a>
+to supply credentials to <code>sqigl</code> when connecting to a production database.</li>
+<li>Add the other connection parameters to your project manifest.</li>
+</ul>
+<pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[project]
+</span><span style="color:#bf616a;">version </span><span>= &quot;</span><span style="color:#a3be8c;">0.1.0</span><span>&quot;
+</span><span style="color:#bf616a;">title </span><span>= &quot;</span><span style="color:#a3be8c;">my_project</span><span>&quot;
+</span><span>
+</span><span>[database]
+</span><span style="color:#bf616a;">db </span><span>= &quot;</span><span style="color:#a3be8c;">postgres</span><span>&quot;
+</span><span style="color:#bf616a;">database </span><span>= &quot;</span><span style="color:#a3be8c;">my_application</span><span>&quot;
+</span><span style="color:#bf616a;">hostname </span><span>= &quot;</span><span style="color:#a3be8c;">db.example.com</span><span>&quot;
+</span></code></pre>
+<h1 id="sqlite">SQLite</h1>
+<ul>
+<li>No setup is required to use <code>sqigl</code> with <code>sqlite</code>.</li>
+<li><code>sqigl</code> will use in-memory databases when necessary.</li>
+</ul>
+
+    </article>
+    <hr />
+    <footer>
+        <p class="material">
+            arrow_back
+        </p>
+        <p class="material">
+            arrow_upward
+        </p>
+        <p class="material">
+            arrow_forward
+        </p>
+        <aside>
+            
+        </aside>
+
+        <aside>
+            <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;getting-started&#x2F;>
+                Getting started
+            </a>
+        </aside>
+
+        <aside>
+            
+                <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;getting-started&#x2F;migrating-to-sqigl&#x2F;>
+                    <p>Migrating to <code>sqigl</code></p>
+
+                </a>
+            
+        </aside>
+    </footer>
+</main>
+
+
+    </body>
+</html>

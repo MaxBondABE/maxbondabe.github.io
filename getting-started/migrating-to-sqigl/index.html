@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>
+            
+                Migrating to `sqigl` |
+            
+            sqigl - the SQL build tool
+        </title>
+
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        
+
+
+<nav class="right">
+    <aside>
+        <label class="toc_label material" tabindex=1>
+            toc
+            <input type="radio" name="toc" class="invisible" id="toc_ctrl"/>
+        </label>
+        <label class="toc_label material" tabindex=1>
+            close
+            <input type="radio" name="toc" class="invisible" checked/>
+        </label>
+    </aside>
+    <aside>
+        <a href="/" class="material" tabindex=5>
+            home
+        </a>
+        <a href="https://github.com/maxbondabe/sqigl" tabindex=5>
+            <img src="/gh.svg" />
+        </a>
+    </aside>
+    <aside>
+        
+            <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;getting-started&#x2F;environment&#x2F; class="material" tabindex=2>
+                arrow_back
+            </a>
+        
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;getting-started&#x2F; class="material" tabindex=3>
+            arrow_upward
+        </a>
+        
+            <p class="placeholder"></p>
+        
+    </aside>
+</nav>
+
+<nav class="toc">
+    <h1>Contents</h1>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;getting-started&#x2F;migrating-to-sqigl&#x2F;#create-a-new-project>
+            Create a new project
+        </a>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;getting-started&#x2F;migrating-to-sqigl&#x2F;#dump-your-schema>
+            Dump your schema
+        </a>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;getting-started&#x2F;migrating-to-sqigl&#x2F;#release-an-initial-version>
+            Release an initial version
+        </a>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;getting-started&#x2F;migrating-to-sqigl&#x2F;#start-a-new-feature>
+            Start a new feature
+        </a>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;getting-started&#x2F;migrating-to-sqigl&#x2F;#organize-your-code>
+            Organize your code
+        </a>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;getting-started&#x2F;migrating-to-sqigl&#x2F;#release-again>
+            Release again
+        </a>
+    
+</nav>
+
+<main class="page">
+    <h1 id="migrating-to-sqigl">Migrating to <code>sqigl</code></h1>
+
+    <article>
+        <h1 id="create-a-new-project">Create a new project</h1>
+<p>Create a new empty <code>sqigl</code> project.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sqigl</span><span> project create my-project postgres
+</span></code></pre>
+<h1 id="dump-your-schema">Dump your schema</h1>
+<p>Dump the schema out of your database into a file in your project's <code>src/</code> directory.</p>
+
+
+
+
+<figure class="tabbed code_example">
+    <input id="code_example_1_pg" type="radio" class="invisible" name="code_example_1" checked />
+    <input id="code_example_1_sqlite" type="radio" class="invisible" name="code_example_1" />
+    <div class="labels">
+        <label for="code_example_1_pg" class="postgres_example" >Postgres</label>
+        <label for="code_example_1_sqlite" class="sqlite_example" >SQLite</label>
+    </div>
+    <aside class="postgres_example">
+        <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">pg_dump --schema-only </span><span>&gt; src/schema.sql
+</span></code></pre>
+
+    </aside>
+    <aside class="sqlite_example">
+        <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sqlite3</span><span> /path/to/database.db .schema &gt; src/schema.sql
+</span></code></pre>
+
+    </aside>
+</figure>
+<h1 id="release-an-initial-version">Release an initial version</h1>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sqigl</span><span> project release
+</span></code></pre>
+<h1 id="start-a-new-feature">Start a new feature</h1>
+<h1 id="organize-your-code">Organize your code</h1>
+<h1 id="release-again">Release again</h1>
+
+    </article>
+    <hr />
+    <footer>
+        <p class="material">
+            arrow_back
+        </p>
+        <p class="material">
+            arrow_upward
+        </p>
+        <p class="material">
+            arrow_forward
+        </p>
+        <aside>
+            
+                <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;getting-started&#x2F;environment&#x2F;>
+                    <p>Development environment</p>
+
+                </a>
+            
+        </aside>
+
+        <aside>
+            <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;getting-started&#x2F;>
+                Getting started
+            </a>
+        </aside>
+
+        <aside>
+            
+        </aside>
+    </footer>
+</main>
+
+
+    </body>
+</html>

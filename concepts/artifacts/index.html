@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>
+            
+                Artifacts and migrations |
+            
+            sqigl - the SQL build tool
+        </title>
+
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        
+
+
+<nav class="right">
+    <aside>
+        <label class="toc_label material" tabindex=1>
+            toc
+            <input type="radio" name="toc" class="invisible" id="toc_ctrl"/>
+        </label>
+        <label class="toc_label material" tabindex=1>
+            close
+            <input type="radio" name="toc" class="invisible" checked/>
+        </label>
+    </aside>
+    <aside>
+        <a href="/" class="material" tabindex=5>
+            home
+        </a>
+        <a href="https://github.com/maxbondabe/sqigl" tabindex=5>
+            <img src="/gh.svg" />
+        </a>
+    </aside>
+    <aside>
+        
+            <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;build&#x2F; class="material" tabindex=2>
+                arrow_back
+            </a>
+        
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F; class="material" tabindex=3>
+            arrow_upward
+        </a>
+        
+            <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;compatability&#x2F; class="material" tabindex=4>
+                arrow_forward
+            </a>
+        
+    </aside>
+</nav>
+
+<nav class="toc">
+    <h1>Contents</h1>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;artifacts&#x2F;#artifacts>
+            Artifacts
+        </a>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;artifacts&#x2F;#migrations-from-0-0-0>
+            Migrations from 0.0.0
+        </a>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;artifacts&#x2F;#generating-migrations>
+            Generating migrations
+        </a>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;artifacts&#x2F;#applying-migrations>
+            Applying migrations
+        </a>
+    
+</nav>
+
+<main class="page">
+    <h1 id="artifacts-and-migrations">Artifacts and migrations</h1>
+
+    <article>
+        <h1 id="artifacts">Artifacts</h1>
+<ul>
+<li>Artifacts are special modules containing <a href="https://en.wikipedia.org/wiki/Schema_migration">migration scripts</a>.</li>
+<li>They are automatically created by <code>sqigl</code> as needed. You won't need to create
+or manage them manually.</li>
+<li>Unlike other modules, artifacts do not contain submodules.</li>
+<li>They are located in the <code>artifacts/</code> directory.</li>
+<li>They are named after the version they concern.</li>
+</ul>
+<h2 id="migrations">Migrations</h2>
+<ul>
+<li>Migrations move the database from one version to another.</li>
+<li>Migrations are configured in the artifact manifest.</li>
+<li>They have 3 parameters:
+<ul>
+<li><code>script</code> - the filename of the migration script.</li>
+<li><code>from</code> - the semantic versioning requirement specifying which versions are compatible with the migration.</li>
+<li><code>to</code> - the version of the database after the migration has been applied.</li>
+</ul>
+</li>
+</ul>
+
+
+
+<figure class="filetree">
+    <div class="paths_title"><p>File</p></div>
+    <div class="content_title"><p>Content</p></div>
+
+    
+    <nav>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                sqigl.toml
+                <input
+                    class="invisible"
+                    id="filetree_1_input_1"
+                    type="radio"
+                    name="filetree_1"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                src/
+                <input
+                    class="invisible"
+                    id="filetree_1_input_2"
+                    type="radio"
+                    name="filetree_1"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 3em"
+            >
+                
+                
+                users.sql
+                <input
+                    class="invisible"
+                    id="filetree_1_input_3"
+                    type="radio"
+                    name="filetree_1"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                artifacts/
+                <input
+                    class="invisible"
+                    id="filetree_1_input_4"
+                    type="radio"
+                    name="filetree_1"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 3em"
+            >
+                
+                
+                0.1.0/
+                <input
+                    class="invisible"
+                    id="filetree_1_input_5"
+                    type="radio"
+                    name="filetree_1"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 5em"
+            >
+                
+                
+                sqigl.toml
+                <input
+                    class="invisible"
+                    id="filetree_1_input_6"
+                    type="radio"
+                    name="filetree_1"
+                     checked 
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 5em"
+            >
+                
+                
+                schema.sql
+                <input
+                    class="invisible"
+                    id="filetree_1_input_7"
+                    type="radio"
+                    name="filetree_1"
+                    
+                />
+            </label>
+        
+    </nav>
+
+    <section>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[project]
+</span><span style="color:#bf616a;">version </span><span>= &quot;</span><span style="color:#a3be8c;">0.1.0</span><span>&quot;
+</span><span style="color:#bf616a;">title </span><span>= &quot;</span><span style="color:#a3be8c;">my_project</span><span>&quot;
+</span><span>
+</span><span>[database]
+</span><span style="color:#bf616a;">db </span><span>= &quot;</span><span style="color:#a3be8c;">postgres</span><span>&quot; </span><span style="color:#65737e;"># will be &quot;sqlite&quot; if you&#39;re using sqlite
+</span></code></pre>
+
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#b48ead;">create table </span><span style="color:#8fa1b3;">users</span><span> (
+</span><span>    pk </span><span style="color:#b48ead;">integer primary key</span><span> auto increment,
+</span><span>    username </span><span style="color:#b48ead;">text</span><span> unique not </span><span style="color:#d08770;">null</span><span>,
+</span><span>    password </span><span style="color:#b48ead;">text </span><span>not </span><span style="color:#d08770;">null
+</span><span>);
+</span></code></pre>
+
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[[migrations]]
+</span><span style="color:#bf616a;">script </span><span>= &quot;</span><span style="color:#a3be8c;">schema.sql</span><span>&quot;
+</span><span style="color:#bf616a;">from </span><span>= &quot;</span><span style="color:#a3be8c;">=0.0.0</span><span>&quot;
+</span><span style="color:#bf616a;">to </span><span>= &quot;</span><span style="color:#a3be8c;">0.1.0</span><span>&quot;
+</span></code></pre>
+
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#65737e;">-- [ my_project 0.1.0 ]
+</span><span>
+</span><span style="color:#65737e;">-- [ users.sql ]
+</span><span>
+</span><span style="color:#b48ead;">create table </span><span style="color:#8fa1b3;">users</span><span> (
+</span><span>    pk </span><span style="color:#b48ead;">integer primary key</span><span> auto increment,
+</span><span>    username </span><span style="color:#b48ead;">text</span><span> unique not </span><span style="color:#d08770;">null</span><span>,
+</span><span>    password </span><span style="color:#b48ead;">text </span><span>not </span><span style="color:#d08770;">null
+</span><span>);
+</span></code></pre>
+
+                
+        </article>
+    
+    </section>
+</figure>
+<h1 id="migrations-from-0-0-0">Migrations from <code>0.0.0</code></h1>
+<ul>
+<li>When you save a build, it is saved as a migration named <code>schema.sql</code>.</li>
+<li>This represents a migration from <code>0.0.0</code> to the current version.</li>
+</ul>
+<h1 id="generating-migrations">Generating migrations</h1>
+<ul>
+<li><code>sqigl</code> can automatically generate some types of migration.</li>
+<li>Currently, only creating and dropping tables are supported.
+<ul>
+<li>More types of migration will be supported in the future.</li>
+</ul>
+</li>
+<li>This works by creating a database and briging it up to each version, and
+looking for differences in the schema.</li>
+<li>To generate a migration, use the command <code>sqigl migration generate &lt;from&gt; (to)</code>
+<ul>
+<li>If <code>to</code> is not specified, the current project version is used.</li>
+</ul>
+</li>
+</ul>
+<h1 id="applying-migrations">Applying migrations</h1>
+<ul>
+<li>Migrations are applied with the <code>sqigl database applied &lt;version&gt;</code> command;</li>
+</ul>
+
+    </article>
+    <hr />
+    <footer>
+        <p class="material">
+            arrow_back
+        </p>
+        <p class="material">
+            arrow_upward
+        </p>
+        <p class="material">
+            arrow_forward
+        </p>
+        <aside>
+            
+                <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;build&#x2F;>
+                    <p>Building</p>
+
+                </a>
+            
+        </aside>
+
+        <aside>
+            <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;>
+                Concepts
+            </a>
+        </aside>
+
+        <aside>
+            
+                <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;compatability&#x2F;>
+                    <p>Compatability</p>
+
+                </a>
+            
+        </aside>
+    </footer>
+</main>
+
+
+    </body>
+</html>

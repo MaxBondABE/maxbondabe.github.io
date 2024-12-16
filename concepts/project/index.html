@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>
+            
+                Project organization |
+            
+            sqigl - the SQL build tool
+        </title>
+
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        
+
+
+<nav class="right">
+    <aside>
+        <label class="toc_label material" tabindex=1>
+            toc
+            <input type="radio" name="toc" class="invisible" id="toc_ctrl"/>
+        </label>
+        <label class="toc_label material" tabindex=1>
+            close
+            <input type="radio" name="toc" class="invisible" checked/>
+        </label>
+    </aside>
+    <aside>
+        <a href="/" class="material" tabindex=5>
+            home
+        </a>
+        <a href="https://github.com/maxbondabe/sqigl" tabindex=5>
+            <img src="/gh.svg" />
+        </a>
+    </aside>
+    <aside>
+        
+            <p class="placeholder"></p>
+        
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F; class="material" tabindex=3>
+            arrow_upward
+        </a>
+        
+            <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;build&#x2F; class="material" tabindex=4>
+                arrow_forward
+            </a>
+        
+    </aside>
+</nav>
+
+<nav class="toc">
+    <h1>Contents</h1>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;project&#x2F;#projects>
+            Projects
+        </a>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;project&#x2F;#manifests>
+            Manifests
+        </a>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;project&#x2F;#dependencies>
+            Dependencies
+        </a>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;project&#x2F;#starting-a-new-project>
+            Starting a new project
+        </a>
+    
+</nav>
+
+<main class="page">
+    <h1 id="project-organization">Project organization</h1>
+
+    <article>
+        <h1 id="projects">Projects</h1>
+<ul>
+<li>Projects are a file tree containing the source code of your project.</li>
+<li>The top-level directory is called the project root.</li>
+<li>Below is an example of a project.</li>
+</ul>
+
+
+
+<figure class="filetree">
+    <div class="paths_title"><p>File</p></div>
+    <div class="content_title"><p>Content</p></div>
+
+    
+    <nav>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                sqigl.toml
+                <input
+                    class="invisible"
+                    id="filetree_1_input_1"
+                    type="radio"
+                    name="filetree_1"
+                     checked 
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                src/
+                <input
+                    class="invisible"
+                    id="filetree_1_input_2"
+                    type="radio"
+                    name="filetree_1"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 3em"
+            >
+                
+                
+                users.sql
+                <input
+                    class="invisible"
+                    id="filetree_1_input_3"
+                    type="radio"
+                    name="filetree_1"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                artifacts/
+                <input
+                    class="invisible"
+                    id="filetree_1_input_4"
+                    type="radio"
+                    name="filetree_1"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 3em"
+            >
+                
+                
+                0.1.0/
+                <input
+                    class="invisible"
+                    id="filetree_1_input_5"
+                    type="radio"
+                    name="filetree_1"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 5em"
+            >
+                
+                
+                sqigl.toml
+                <input
+                    class="invisible"
+                    id="filetree_1_input_6"
+                    type="radio"
+                    name="filetree_1"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 5em"
+            >
+                
+                
+                schema.sql
+                <input
+                    class="invisible"
+                    id="filetree_1_input_7"
+                    type="radio"
+                    name="filetree_1"
+                    
+                />
+            </label>
+        
+    </nav>
+
+    <section>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[project]
+</span><span style="color:#bf616a;">version </span><span>= &quot;</span><span style="color:#a3be8c;">0.1.0</span><span>&quot;
+</span><span style="color:#bf616a;">title </span><span>= &quot;</span><span style="color:#a3be8c;">my_project</span><span>&quot;
+</span><span>
+</span><span>[database]
+</span><span style="color:#bf616a;">db </span><span>= &quot;</span><span style="color:#a3be8c;">postgres</span><span>&quot; </span><span style="color:#65737e;"># will be &quot;sqlite&quot; if you&#39;re using sqlite
+</span></code></pre>
+
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#b48ead;">create table </span><span style="color:#8fa1b3;">users</span><span> (
+</span><span>    pk </span><span style="color:#b48ead;">integer primary key</span><span> auto increment,
+</span><span>    username </span><span style="color:#b48ead;">text</span><span> unique not </span><span style="color:#d08770;">null</span><span>,
+</span><span>    password </span><span style="color:#b48ead;">text </span><span>not </span><span style="color:#d08770;">null
+</span><span>);
+</span></code></pre>
+
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[[migrations]]
+</span><span style="color:#bf616a;">script </span><span>= &quot;</span><span style="color:#a3be8c;">schema.sql</span><span>&quot;
+</span><span style="color:#bf616a;">from </span><span>= &quot;</span><span style="color:#a3be8c;">=0.0.0</span><span>&quot;
+</span><span style="color:#bf616a;">to </span><span>= &quot;</span><span style="color:#a3be8c;">0.1.0</span><span>&quot;
+</span></code></pre>
+
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#65737e;">-- [ my_project 0.1.0 ]
+</span><span>
+</span><span style="color:#65737e;">-- [ users.sql ]
+</span><span>
+</span><span style="color:#b48ead;">create table </span><span style="color:#8fa1b3;">users</span><span> (
+</span><span>    pk </span><span style="color:#b48ead;">integer primary key</span><span> auto increment,
+</span><span>    username </span><span style="color:#b48ead;">text</span><span> unique not </span><span style="color:#d08770;">null</span><span>,
+</span><span>    password </span><span style="color:#b48ead;">text </span><span>not </span><span style="color:#d08770;">null
+</span><span>);
+</span></code></pre>
+
+                
+        </article>
+    
+    </section>
+</figure>
+<h2 id="scripts">Scripts</h2>
+<ul>
+<li>Scripts are SQL files which contain the code to our project.</li>
+<li>Scripts must use the <code>.sql</code> extension.</li>
+<li>When we build our project, we will concatenate all of our scripts together into
+a single script.</li>
+</ul>
+<h2 id="modules">Modules</h2>
+<ul>
+<li>Modules are directories which contain scripts.</li>
+<li>They are located in the <code>src/</code> directory.
+<ul>
+<li>The <code>src/</code> directory itself is a module.</li>
+</ul>
+</li>
+<li>Modules may contain submodules, which are subdirectories containing their own scripts.</li>
+<li>This allows us to organize our code by topic, making our project more maintainable.</li>
+<li>Modules may contain a manifest.
+<ul>
+<li>The module manifest is a file called <code>sqigl.toml</code> which contains configuration
+information.</li>
+</ul>
+</li>
+</ul>
+<h2 id="artifacts">Artifacts</h2>
+<ul>
+<li>Artifacts are special modules containing <a href="https://en.wikipedia.org/wiki/Schema_migration">migration scripts</a>.</li>
+<li>They are automatically created by <code>sqigl</code> as needed. You won't need to create
+or manage them manually.</li>
+<li>Migrations move the database from one version to another.</li>
+<li>Unlike other modules, artifacts do not contain submodules.</li>
+<li>They are located in the <code>artifacts/</code> directory.</li>
+<li>They are named after the version they concern.</li>
+</ul>
+<h1 id="manifests">Manifests</h1>
+<ul>
+<li>Manifests are configuration files.</li>
+<li>They are always named <code>sqigl.toml</code>.</li>
+<li>Their function is determined by the directory they are in.</li>
+</ul>
+<h2 id="project-manifest">Project manifest</h2>
+<ul>
+<li>The project manifest specifies the project name, version, and database parameters.</li>
+<li>It's located in the project root.</li>
+<li>The project manifest is required.</li>
+</ul>
+<pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[project]
+</span><span style="color:#bf616a;">version </span><span>= &quot;</span><span style="color:#a3be8c;">0.1.0</span><span>&quot;
+</span><span style="color:#bf616a;">title </span><span>= &quot;</span><span style="color:#a3be8c;">my_project</span><span>&quot;
+</span><span>
+</span><span>[database]
+</span><span style="color:#bf616a;">db </span><span>= &quot;</span><span style="color:#a3be8c;">postgres</span><span>&quot;
+</span></code></pre>
+<h2 id="module-manifests">Module manifests</h2>
+<ul>
+<li>Module manifests specify dependencies.</li>
+<li>They are optional. You won't need to use them most of the time.</li>
+</ul>
+<pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[module]
+</span><span style="color:#bf616a;">dependencies </span><span>= [&quot;</span><span style="color:#a3be8c;">resources/</span><span>&quot;]
+</span><span>
+</span><span>[[scripts]]
+</span><span style="color:#bf616a;">script </span><span>= &quot;</span><span style="color:#a3be8c;">posts.sql</span><span>&quot;
+</span><span style="color:#bf616a;">dependencies </span><span>= [&quot;</span><span style="color:#a3be8c;">users.sql</span><span>&quot;]
+</span></code></pre>
+<h2 id="artifact-manifests">Artifact manifests</h2>
+<ul>
+<li>Artifacts are special modules containing scripts called migrations.</li>
+<li>Migrations move a database from one version to another.</li>
+<li>The module manifest specifies what versions are compatible with a migration,
+and what version they update the database to.</li>
+<li>Artifact manifests are required.</li>
+</ul>
+<pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[[migrations]]
+</span><span style="color:#bf616a;">script </span><span>= &quot;</span><span style="color:#a3be8c;">schema.sql</span><span>&quot;
+</span><span style="color:#bf616a;">from </span><span>= &quot;</span><span style="color:#a3be8c;">=0.0.0</span><span>&quot; </span><span style="color:#65737e;"># The versions this migration is compatible with.
+</span><span style="color:#bf616a;">to </span><span>= &quot;</span><span style="color:#a3be8c;">0.1.0</span><span>&quot; </span><span style="color:#65737e;"># The version the migration moves the database to.
+</span></code></pre>
+<h1 id="dependencies">Dependencies</h1>
+<ul>
+<li>Sometimes SQL requires statements to appear in a certain order.</li>
+<li>The most common example is <code>create table</code> statements with a foreign-key relationship.<pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#65737e;">-- Correct ✅
+</span><span style="color:#b48ead;">create table </span><span style="color:#8fa1b3;">users</span><span> (
+</span><span>    pk </span><span style="color:#b48ead;">integer primary key</span><span> auto increment,
+</span><span>    username </span><span style="color:#b48ead;">text</span><span> unique not </span><span style="color:#d08770;">null</span><span>,
+</span><span>    password </span><span style="color:#b48ead;">text </span><span>not </span><span style="color:#d08770;">null
+</span><span>);
+</span><span style="color:#b48ead;">create table </span><span style="color:#8fa1b3;">posts</span><span> (
+</span><span>    pk </span><span style="color:#b48ead;">integer primary key</span><span> auto increment,
+</span><span>    user </span><span style="color:#b48ead;">integer </span><span>not </span><span style="color:#d08770;">null </span><span style="color:#b48ead;">primary key</span><span> users(pk)
+</span><span>);
+</span><span>
+</span><span style="color:#65737e;">-- Incorrect ❌
+</span><span style="color:#b48ead;">create table </span><span style="color:#8fa1b3;">posts</span><span> (
+</span><span>    pk </span><span style="color:#b48ead;">integer primary key</span><span> auto increment,
+</span><span>    user </span><span style="color:#b48ead;">integer </span><span>not </span><span style="color:#d08770;">null </span><span style="color:#b48ead;">primary key</span><span> users(pk)
+</span><span>);
+</span><span style="color:#b48ead;">create table </span><span style="color:#8fa1b3;">users</span><span> (
+</span><span>    pk </span><span style="color:#b48ead;">integer primary key</span><span> auto increment,
+</span><span>    username </span><span style="color:#b48ead;">text</span><span> unique not </span><span style="color:#d08770;">null</span><span>,
+</span><span>    password </span><span style="color:#b48ead;">text </span><span>not </span><span style="color:#d08770;">null
+</span><span>);
+</span></code></pre>
+</li>
+<li>When these statements are in different scripts, it creates a dependency relationship
+between them.</li>
+<li>If <code>sqigl</code> doesn't know about these dependencies, it won't be able to build our
+code correctly.</li>
+</ul>
+<h2 id="implicit-dependencies">Implicit dependencies</h2>
+<ul>
+<li>Modules depend on their parent modules implicitly.</li>
+<li>Organizing our project so that our tables with references are at the leaves
+of our project and tables that are reffered to are at the root naturally
+expresses our dependency relationships.</li>
+<li>Consider the following project:
+
+
+
+<figure class="filetree">
+    <div class="paths_title"><p>File</p></div>
+    <div class="content_title"><p>Content</p></div>
+
+    
+    <nav>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                sqigl.toml
+                <input
+                    class="invisible"
+                    id="filetree_2_input_1"
+                    type="radio"
+                    name="filetree_2"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                artifacts/
+                <input
+                    class="invisible"
+                    id="filetree_2_input_2"
+                    type="radio"
+                    name="filetree_2"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                src/
+                <input
+                    class="invisible"
+                    id="filetree_2_input_3"
+                    type="radio"
+                    name="filetree_2"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 3em"
+            >
+                
+                
+                users.sql
+                <input
+                    class="invisible"
+                    id="filetree_2_input_4"
+                    type="radio"
+                    name="filetree_2"
+                     checked 
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 3em"
+            >
+                
+                
+                resources/
+                <input
+                    class="invisible"
+                    id="filetree_2_input_5"
+                    type="radio"
+                    name="filetree_2"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 5em"
+            >
+                
+                
+                posts.sql
+                <input
+                    class="invisible"
+                    id="filetree_2_input_6"
+                    type="radio"
+                    name="filetree_2"
+                    
+                />
+            </label>
+        
+    </nav>
+
+    <section>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[project]
+</span><span style="color:#bf616a;">version </span><span>= &quot;</span><span style="color:#a3be8c;">0.1.0</span><span>&quot;
+</span><span style="color:#bf616a;">title </span><span>= &quot;</span><span style="color:#a3be8c;">my_project</span><span>&quot;
+</span><span>
+</span><span>[database]
+</span><span style="color:#bf616a;">db </span><span>= &quot;</span><span style="color:#a3be8c;">postgres</span><span>&quot;
+</span></code></pre>
+
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#b48ead;">create table </span><span style="color:#8fa1b3;">users</span><span> (
+</span><span>    pk </span><span style="color:#b48ead;">integer primary key</span><span> auto increment,
+</span><span>    username </span><span style="color:#b48ead;">text</span><span> unique not </span><span style="color:#d08770;">null</span><span>,
+</span><span>    password </span><span style="color:#b48ead;">text </span><span>not </span><span style="color:#d08770;">null
+</span><span>);
+</span></code></pre>
+
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#b48ead;">create table </span><span style="color:#8fa1b3;">posts</span><span> (
+</span><span>    pk </span><span style="color:#b48ead;">integer primary key</span><span> auto increment,
+</span><span>    user </span><span style="color:#b48ead;">integer </span><span>not </span><span style="color:#d08770;">null </span><span style="color:#b48ead;">primary key</span><span> users(pk)
+</span><span>);
+</span></code></pre>
+
+                
+        </article>
+    
+    </section>
+</figure>
+</li>
+<li>Because <code>users.sql</code> is in the parent module of <code>posts.sql</code>, it will preceed
+<code>posts.sql</code> in the build.<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>&gt; sqigl </span><span style="color:#bf616a;">project</span><span> build
+</span><span style="color:#bf616a;">-- </span><span style="color:#b48ead;">[</span><span> my_project 0.1.0 </span><span style="color:#b48ead;">]
+</span><span>
+</span><span style="color:#bf616a;">-- </span><span style="color:#b48ead;">[</span><span> users.sql </span><span style="color:#b48ead;">]
+</span><span>
+</span><span style="color:#bf616a;">create</span><span> table users (
+</span><span>    </span><span style="color:#bf616a;">pk</span><span> integer primary key auto increment,
+</span><span>    </span><span style="color:#bf616a;">username</span><span> text unique not null,
+</span><span>    </span><span style="color:#bf616a;">password</span><span> text not null
+</span><span>);
+</span><span>
+</span><span style="color:#bf616a;">-- </span><span style="color:#b48ead;">[</span><span> resources/posts.sql </span><span style="color:#b48ead;">]
+</span><span>
+</span><span style="color:#bf616a;">create</span><span> table posts (
+</span><span>    </span><span style="color:#bf616a;">pk</span><span> integer primary key auto increment,
+</span><span>    </span><span style="color:#bf616a;">user</span><span> integer not null primary key users(pk)
+</span><span>);
+</span></code></pre>
+</li>
+<li>When possible, dependencies should be expressed implicitly.</li>
+<li>Otherwise, you will need to express the dependency explicitly in one of the following
+ways.</li>
+</ul>
+<h2 id="module-level-dependencies">Module-level dependencies</h2>
+<ul>
+<li>We can add an entry to a module's manifest indicating that it depends on another module.</li>
+<li>This is useful when a module depends on a module which isn't an ancestor (a sibling for instance).</li>
+<li>Consider the following project:
+
+
+
+<figure class="filetree">
+    <div class="paths_title"><p>File</p></div>
+    <div class="content_title"><p>Content</p></div>
+
+    
+    <nav>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                sqigl.toml
+                <input
+                    class="invisible"
+                    id="filetree_3_input_1"
+                    type="radio"
+                    name="filetree_3"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                artifacts/
+                <input
+                    class="invisible"
+                    id="filetree_3_input_2"
+                    type="radio"
+                    name="filetree_3"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                src/
+                <input
+                    class="invisible"
+                    id="filetree_3_input_3"
+                    type="radio"
+                    name="filetree_3"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 3em"
+            >
+                
+                
+                users/
+                <input
+                    class="invisible"
+                    id="filetree_3_input_4"
+                    type="radio"
+                    name="filetree_3"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 5em"
+            >
+                
+                
+                users.sql
+                <input
+                    class="invisible"
+                    id="filetree_3_input_5"
+                    type="radio"
+                    name="filetree_3"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 3em"
+            >
+                
+                
+                posts/
+                <input
+                    class="invisible"
+                    id="filetree_3_input_6"
+                    type="radio"
+                    name="filetree_3"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 5em"
+            >
+                
+                
+                sqigl.toml
+                <input
+                    class="invisible"
+                    id="filetree_3_input_7"
+                    type="radio"
+                    name="filetree_3"
+                     checked 
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 5em"
+            >
+                
+                
+                posts.sql
+                <input
+                    class="invisible"
+                    id="filetree_3_input_8"
+                    type="radio"
+                    name="filetree_3"
+                    
+                />
+            </label>
+        
+    </nav>
+
+    <section>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[project]
+</span><span style="color:#bf616a;">version </span><span>= &quot;</span><span style="color:#a3be8c;">0.1.0</span><span>&quot;
+</span><span style="color:#bf616a;">title </span><span>= &quot;</span><span style="color:#a3be8c;">my_project</span><span>&quot;
+</span><span>
+</span><span>[database]
+</span><span style="color:#bf616a;">db </span><span>= &quot;</span><span style="color:#a3be8c;">postgres</span><span>&quot;
+</span></code></pre>
+
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#b48ead;">create table </span><span style="color:#8fa1b3;">users</span><span> (
+</span><span>    pk </span><span style="color:#b48ead;">integer primary key</span><span> auto increment,
+</span><span>    username </span><span style="color:#b48ead;">text</span><span> unique not </span><span style="color:#d08770;">null</span><span>,
+</span><span>    password </span><span style="color:#b48ead;">text </span><span>not </span><span style="color:#d08770;">null
+</span><span>);
+</span></code></pre>
+
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[module]
+</span><span style="color:#bf616a;">dependencies </span><span>= [&quot;</span><span style="color:#a3be8c;">/users</span><span>&quot;] </span><span style="color:#65737e;"># &quot;../users&quot; would also work
+</span><span>                          </span><span style="color:#65737e;"># This is a list, so we can specify multiple dependencies
+</span><span>                          </span><span style="color:#65737e;"># (eg [&quot;/foo&quot;, &quot;/bar/baz&quot;])
+</span></code></pre>
+
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#b48ead;">create table </span><span style="color:#8fa1b3;">posts</span><span> (
+</span><span>    pk </span><span style="color:#b48ead;">integer primary key</span><span> auto increment,
+</span><span>    user </span><span style="color:#b48ead;">integer </span><span>not </span><span style="color:#d08770;">null </span><span style="color:#b48ead;">primary key</span><span> users(pk)
+</span><span>);
+</span></code></pre>
+
+                
+        </article>
+    
+    </section>
+</figure>
+</li>
+<li>Because the <code>posts/</code> module's manifest specifies the <code>users/</code> module as a dependency,
+<code>users.sql</code> will preceed <code>posts.sql</code> in the build.<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>&gt; sqigl </span><span style="color:#bf616a;">project</span><span> build
+</span><span style="color:#bf616a;">-- </span><span style="color:#b48ead;">[</span><span> my_project 0.1.0 </span><span style="color:#b48ead;">]
+</span><span>
+</span><span style="color:#bf616a;">-- </span><span style="color:#b48ead;">[</span><span> users/users.sql </span><span style="color:#b48ead;">]
+</span><span>
+</span><span style="color:#bf616a;">create</span><span> table users (
+</span><span>    </span><span style="color:#bf616a;">pk</span><span> integer primary key auto increment,
+</span><span>    </span><span style="color:#bf616a;">username</span><span> text unique not null,
+</span><span>    </span><span style="color:#bf616a;">password</span><span> text not null
+</span><span>);
+</span><span>
+</span><span style="color:#bf616a;">-- </span><span style="color:#b48ead;">[</span><span> posts/posts.sql </span><span style="color:#b48ead;">]
+</span><span>
+</span><span style="color:#bf616a;">create</span><span> table posts (
+</span><span>    </span><span style="color:#bf616a;">pk</span><span> integer primary key auto increment,
+</span><span>    </span><span style="color:#bf616a;">user</span><span> integer not null primary key users(pk)
+</span><span>);
+</span></code></pre>
+</li>
+</ul>
+<h2 id="script-level-dependencies">Script-level dependencies</h2>
+<ul>
+<li>If we have dependencies between two scripts in the same module, we can specify
+this in the module's manifest.</li>
+<li>Consider the following project:
+
+
+
+<figure class="filetree">
+    <div class="paths_title"><p>File</p></div>
+    <div class="content_title"><p>Content</p></div>
+
+    
+    <nav>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                sqigl.toml
+                <input
+                    class="invisible"
+                    id="filetree_4_input_1"
+                    type="radio"
+                    name="filetree_4"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                artifacts/
+                <input
+                    class="invisible"
+                    id="filetree_4_input_2"
+                    type="radio"
+                    name="filetree_4"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                src/
+                <input
+                    class="invisible"
+                    id="filetree_4_input_3"
+                    type="radio"
+                    name="filetree_4"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 3em"
+            >
+                
+                
+                sqigl.toml
+                <input
+                    class="invisible"
+                    id="filetree_4_input_4"
+                    type="radio"
+                    name="filetree_4"
+                     checked 
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 3em"
+            >
+                
+                
+                users.sql
+                <input
+                    class="invisible"
+                    id="filetree_4_input_5"
+                    type="radio"
+                    name="filetree_4"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 3em"
+            >
+                
+                
+                posts.sql
+                <input
+                    class="invisible"
+                    id="filetree_4_input_6"
+                    type="radio"
+                    name="filetree_4"
+                    
+                />
+            </label>
+        
+    </nav>
+
+    <section>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[project]
+</span><span style="color:#bf616a;">version </span><span>= &quot;</span><span style="color:#a3be8c;">0.1.0</span><span>&quot;
+</span><span style="color:#bf616a;">title </span><span>= &quot;</span><span style="color:#a3be8c;">my_project</span><span>&quot;
+</span><span>
+</span><span>[database]
+</span><span style="color:#bf616a;">db </span><span>= &quot;</span><span style="color:#a3be8c;">postgres</span><span>&quot;
+</span></code></pre>
+
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[[scripts]]
+</span><span style="color:#bf616a;">script </span><span>= &quot;</span><span style="color:#a3be8c;">posts.sql</span><span>&quot;
+</span><span style="color:#bf616a;">dependencies </span><span>= [&quot;</span><span style="color:#a3be8c;">users.sql</span><span>&quot;] </span><span style="color:#65737e;"># This is a list, so we can specify multiple dependencies
+</span><span>                             </span><span style="color:#65737e;"># (eg [&quot;foo.sql&quot;, &quot;bar.sql&quot;])
+</span></code></pre>
+
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#b48ead;">create table </span><span style="color:#8fa1b3;">users</span><span> (
+</span><span>    pk </span><span style="color:#b48ead;">integer primary key</span><span> auto increment,
+</span><span>    username </span><span style="color:#b48ead;">text</span><span> unique not </span><span style="color:#d08770;">null</span><span>,
+</span><span>    password </span><span style="color:#b48ead;">text </span><span>not </span><span style="color:#d08770;">null
+</span><span>);
+</span></code></pre>
+
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#b48ead;">create table </span><span style="color:#8fa1b3;">posts</span><span> (
+</span><span>    pk </span><span style="color:#b48ead;">integer primary key</span><span> auto increment,
+</span><span>    user </span><span style="color:#b48ead;">integer </span><span>not </span><span style="color:#d08770;">null </span><span style="color:#b48ead;">primary key</span><span> users(pk)
+</span><span>);
+</span></code></pre>
+
+                
+        </article>
+    
+    </section>
+</figure>
+</li>
+<li>Because we've identified <code>users.sql</code> as a dependency of <code>posts.sql</code>, it will preceed
+<code>posts.sql</code> in the build.<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>&gt; sqigl </span><span style="color:#bf616a;">project</span><span> build
+</span><span style="color:#bf616a;">-- </span><span style="color:#b48ead;">[</span><span> my_project 0.1.0 </span><span style="color:#b48ead;">]
+</span><span>
+</span><span style="color:#bf616a;">-- </span><span style="color:#b48ead;">[</span><span> users.sql </span><span style="color:#b48ead;">]
+</span><span>
+</span><span style="color:#bf616a;">create</span><span> table users (
+</span><span>    </span><span style="color:#bf616a;">pk</span><span> integer primary key auto increment,
+</span><span>    </span><span style="color:#bf616a;">username</span><span> text unique not null,
+</span><span>    </span><span style="color:#bf616a;">password</span><span> text not null
+</span><span>);
+</span><span>
+</span><span style="color:#bf616a;">-- </span><span style="color:#b48ead;">[</span><span> posts.sql </span><span style="color:#b48ead;">]
+</span><span>
+</span><span style="color:#bf616a;">create</span><span> table posts (
+</span><span>    </span><span style="color:#bf616a;">pk</span><span> integer primary key auto increment,
+</span><span>    </span><span style="color:#bf616a;">user</span><span> integer not null primary key users(pk)
+</span><span>);
+</span></code></pre>
+</li>
+</ul>
+<h1 id="starting-a-new-project">Starting a new project</h1>
+<ul>
+<li>To create a new, empty project, use the command <code>sqigl project create &lt;project_name&gt; &lt;database&gt;</code>.</li>
+<li>Database will be <code>postgres</code> or <code>sqlite</code>, depending on the database you're using.</li>
+<li>This will create a new directory named <code>&lt;project_name&gt;</code>, which will be more project root.</li>
+</ul>
+
+
+
+
+<figure class="tabbed code_example">
+    <input id="code_example_1_pg" type="radio" class="invisible" name="code_example_1" checked />
+    <input id="code_example_1_sqlite" type="radio" class="invisible" name="code_example_1" />
+    <div class="labels">
+        <label for="code_example_1_pg" class="postgres_example" >Postgres</label>
+        <label for="code_example_1_sqlite" class="sqlite_example" >SQLite</label>
+    </div>
+    <aside class="postgres_example">
+        <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>&gt; sqigl </span><span style="color:#bf616a;">project</span><span> create my_project postgres
+</span><span>&gt; cd </span><span style="color:#bf616a;">my_project
+</span><span>&gt; git </span><span style="color:#bf616a;">init
+</span><span style="color:#bf616a;">Initialized</span><span> empty Git repository in my_project
+</span></code></pre>
+
+    </aside>
+    <aside class="sqlite_example">
+        <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>&gt; sqigl </span><span style="color:#bf616a;">project</span><span> create my_project sqlite
+</span><span>&gt; cd </span><span style="color:#bf616a;">my_project
+</span><span>&gt; git </span><span style="color:#bf616a;">init
+</span><span style="color:#bf616a;">Initialized</span><span> empty Git repository in my_project
+</span></code></pre>
+
+    </aside>
+</figure>
+
+
+
+<figure class="filetree">
+    <div class="paths_title"><p>File</p></div>
+    <div class="content_title"><p>Content</p></div>
+
+    
+    <nav>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                sqigl.toml
+                <input
+                    class="invisible"
+                    id="filetree_5_input_1"
+                    type="radio"
+                    name="filetree_5"
+                     checked 
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                src/
+                <input
+                    class="invisible"
+                    id="filetree_5_input_2"
+                    type="radio"
+                    name="filetree_5"
+                    
+                />
+            </label>
+        
+            
+            
+            
+           <label
+               style="padding-left: 1em"
+            >
+                
+                
+                artifacts/
+                <input
+                    class="invisible"
+                    id="filetree_5_input_3"
+                    type="radio"
+                    name="filetree_5"
+                    
+                />
+            </label>
+        
+    </nav>
+
+    <section>
+    
+        
+        
+        <article>
+                
+
+                
+                    
+                    
+                    
+
+                    <pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[project]
+</span><span style="color:#bf616a;">version </span><span>= &quot;</span><span style="color:#a3be8c;">0.1.0</span><span>&quot;
+</span><span style="color:#bf616a;">title </span><span>= &quot;</span><span style="color:#a3be8c;">my_project</span><span>&quot;
+</span><span>
+</span><span>[database]
+</span><span style="color:#bf616a;">db </span><span>= &quot;</span><span style="color:#a3be8c;">postgres</span><span>&quot; </span><span style="color:#65737e;"># will be &quot;sqlite&quot; if you&#39;re using sqlite
+</span></code></pre>
+
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+        
+        
+        <article>
+                
+
+                
+                    <p class="italics">Directory</p>
+                
+        </article>
+    
+    </section>
+</figure>
+
+    </article>
+    <hr />
+    <footer>
+        <p class="material">
+            arrow_back
+        </p>
+        <p class="material">
+            arrow_upward
+        </p>
+        <p class="material">
+            arrow_forward
+        </p>
+        <aside>
+            
+        </aside>
+
+        <aside>
+            <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;>
+                Concepts
+            </a>
+        </aside>
+
+        <aside>
+            
+                <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;build&#x2F;>
+                    <p>Building</p>
+
+                </a>
+            
+        </aside>
+    </footer>
+</main>
+
+
+    </body>
+</html>

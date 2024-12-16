@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>
+            
+                Compatability |
+            
+            sqigl - the SQL build tool
+        </title>
+
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        
+
+
+<nav class="right">
+    <aside>
+        <label class="toc_label material" tabindex=1>
+            toc
+            <input type="radio" name="toc" class="invisible" id="toc_ctrl"/>
+        </label>
+        <label class="toc_label material" tabindex=1>
+            close
+            <input type="radio" name="toc" class="invisible" checked/>
+        </label>
+    </aside>
+    <aside>
+        <a href="/" class="material" tabindex=5>
+            home
+        </a>
+        <a href="https://github.com/maxbondabe/sqigl" tabindex=5>
+            <img src="/gh.svg" />
+        </a>
+    </aside>
+    <aside>
+        
+            <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;artifacts&#x2F; class="material" tabindex=2>
+                arrow_back
+            </a>
+        
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F; class="material" tabindex=3>
+            arrow_upward
+        </a>
+        
+            <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;versions&#x2F; class="material" tabindex=4>
+                arrow_forward
+            </a>
+        
+    </aside>
+</nav>
+
+<nav class="toc">
+    <h1>Contents</h1>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;compatability&#x2F;#semantic-versioning>
+            Semantic versioning
+        </a>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;compatability&#x2F;#compatability>
+            Compatability
+        </a>
+    
+        <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;compatability&#x2F;#managing-compatibility>
+            Managing compatibility
+        </a>
+    
+</nav>
+
+<main class="page">
+    <h1 id="compatability">Compatability</h1>
+
+    <article>
+        <h1 id="semantic-versioning">Semantic versioning</h1>
+<ul>
+<li><code>sqigl</code> uses <a href="https://devhints.io/semver">semantic versioning</a> to to determine
+which migrations may be safely applied to a database.</li>
+<li>Semantic versions take the form <code>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</code>, such as <code>1.2.3</code></li>
+<li>A patch version bump indicates a change introduces a bug fix which does not
+impact compatability, such as inserting or updating a row</li>
+<li>A minor version bump indicates a backwards compatible change
+<ul>
+<li>A backwards compatible change will not disrupt any code currently consuming
+the database</li>
+</ul>
+</li>
+<li>A major version bump indicates backwards a backwards incompatible change
+<ul>
+<li>This change is expected to interupt</li>
+</ul>
+</li>
+</ul>
+<h1 id="compatability">Compatability</h1>
+<ul>
+<li>Compatability is central to semantic versioning.</li>
+<li>In order to determine the compatibility of a database migration, you need to
+consider it's visibility to database clients.
+<ul>
+<li>This is a perspective which may be unfamiliar to database programmers.
+It requires considering your schema as an API which applications consume.</li>
+</ul>
+</li>
+<li>Below is an incomplete account of how SQL operations relate to semantic versioning
+compatability.
+<ul>
+<li>Because this is impacted by the your specific use case, it is not possible to
+provide universal guidance. You must interpret this in the context of your
+own application.</li>
+<li>When in doubt, consider the changes backwards incompatible.</li>
+</ul>
+</li>
+</ul>
+
+
+<figure class="compat">
+    <section>
+        <h1>
+            Operation
+        </h1>
+        <h1>
+            Compatability
+        </h1>
+    </section>
+    
+        <section>
+            <h1>
+                Tables
+            </h1>
+            <article> 
+                <div class="patch"><h1>Patch</h1></div>
+                <div class="minor"><h1>Minor</h1></div>
+                <div class="major"><h1>Major</h1></div>
+                <ul class="patch">
+                    
+                </ul>
+                <ul class="minor">
+                    
+                        
+                            <li>Creating a new table</li>
+                        
+                            <li>Adding a new column</li>
+                        
+                            <li>Changing the default of an existing column</li>
+                        
+                            <li>Removing an existing constraint</li>
+                        
+                    
+                </ul>
+                <ul class="major">
+                    
+                        
+                            <li>Dropping a table</li>
+                        
+                            <li>Renaming a table</li>
+                        
+                            <li>Adding a new constraint to an existing column</li>
+                        
+                            <li>Removing a column</li>
+                        
+                            <li>Renaming a column</li>
+                        
+                            <li>Changing a column&#x27;s type</li>
+                        
+                    
+                </ul>
+            </article>
+        </section>
+    
+        <section>
+            <h1>
+                Views
+            </h1>
+            <article> 
+                <div class="patch"><h1>Patch</h1></div>
+                <div class="minor"><h1>Minor</h1></div>
+                <div class="major"><h1>Major</h1></div>
+                <ul class="patch">
+                    
+                </ul>
+                <ul class="minor">
+                    
+                </ul>
+                <ul class="major">
+                    
+                </ul>
+            </article>
+        </section>
+    
+        <section>
+            <h1>
+                Stored procedures
+            </h1>
+            <article> 
+                <div class="patch"><h1>Patch</h1></div>
+                <div class="minor"><h1>Minor</h1></div>
+                <div class="major"><h1>Major</h1></div>
+                <ul class="patch">
+                    
+                        
+                            <li>Replacing an existing stored procedure without changing the type signature</li>
+                        
+                    
+                </ul>
+                <ul class="minor">
+                    
+                        
+                            <li>Creating a new stored procedure</li>
+                        
+                    
+                </ul>
+                <ul class="major">
+                    
+                        
+                            <li>Deleting a stored procedure</li>
+                        
+                            <li>Renaming a stored procedure</li>
+                        
+                            <li>Changing the type signature of a stored procedure</li>
+                        
+                    
+                </ul>
+            </article>
+        </section>
+    
+        <section>
+            <h1>
+                Access
+            </h1>
+            <article> 
+                <div class="patch"><h1>Patch</h1></div>
+                <div class="minor"><h1>Minor</h1></div>
+                <div class="major"><h1>Major</h1></div>
+                <ul class="patch">
+                    
+                </ul>
+                <ul class="minor">
+                    
+                        
+                            <li>Creating a new user or role</li>
+                        
+                            <li>Granting new permissions to an existing user or role</li>
+                        
+                    
+                </ul>
+                <ul class="major">
+                    
+                        
+                            <li>Deleting an existing user or role</li>
+                        
+                            <li>Revoking permissions for an existing user or role</li>
+                        
+                    
+                </ul>
+            </article>
+        </section>
+    
+        <section>
+            <h1>
+                Rows
+            </h1>
+            <article> 
+                <div class="patch"><h1>Patch</h1></div>
+                <div class="minor"><h1>Minor</h1></div>
+                <div class="major"><h1>Major</h1></div>
+                <ul class="patch">
+                    
+                        
+                            <li>Inserting a row</li>
+                        
+                            <li>Updating a row</li>
+                        
+                            <li>Deleting a row</li>
+                        
+                    
+                </ul>
+                <ul class="minor">
+                    
+                </ul>
+                <ul class="major">
+                    
+                </ul>
+            </article>
+        </section>
+    
+</figure>
+<h1 id="managing-compatibility">Managing compatibility</h1>
+<h2 id="scream-testing">Scream testing</h2>
+<ul>
+<li>Before performing an irrevocable schema change, it is best practice to first perform a
+<a href="https://www.microsoft.com/insidetrack/blog/microsoft-uses-a-scream-test-to-silence-its-unused-servers/">"scream test"</a></li>
+<li>A scream test is a change which will break the same code, but which is reversible
+<ul>
+<li>The goal is that to alert the impacted users and cause them to reach out to you</li>
+<li>For example, if we wish to drop a table, our scream test will be to rename the table instead</li>
+</ul>
+</li>
+<li>In complex deployments, there may be reporting which runs infrequently, such as on a monthly, quarterly, or annual basis</li>
+<li>A scream test should last at least as long as your organization's least-frequent reporting interval</li>
+</ul>
+<h2 id="decoupling-with-views">Decoupling with views</h2>
+<ul>
+<li>In applications with complex compatibility requirements, views and stored procedures can be used to decouple
+access to the schema from the underlying tables.</li>
+<li>For instance, you could create a view <code>users_v1</code> which applications use to access your <code>users</code> table.
+<ul>
+<li>Any backwards-incompatible changes to the <code>users</code> table will be paired with
+an update to the <code>users_v1</code> view to obscrue the change.</li>
+<li>Then you will create a new view, <code>users_v2</code>, which reflects the change.</li>
+<li>Access to the <code>users_v1</code> view will be deprecated and slowly phased out.</li>
+</ul>
+</li>
+<li>Similarly, you can mandate that all access to your schema is performed through stored procedures,</li>
+<li>See also <a href="https://fly.io/blog/skip-the-api/">this article</a> about using database
+schema as an API, and the <a href="https://news.ycombinator.com/item?id=37497345">Hacker News thread</a>
+for discussion about how to manage the resulting complications.</li>
+</ul>
+
+    </article>
+    <hr />
+    <footer>
+        <p class="material">
+            arrow_back
+        </p>
+        <p class="material">
+            arrow_upward
+        </p>
+        <p class="material">
+            arrow_forward
+        </p>
+        <aside>
+            
+                <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;artifacts&#x2F;>
+                    <p>Artifacts and migrations</p>
+
+                </a>
+            
+        </aside>
+
+        <aside>
+            <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;>
+                Concepts
+            </a>
+        </aside>
+
+        <aside>
+            
+                <a href=https:&#x2F;&#x2F;maxbondabe.github.io&#x2F;sqigl&#x2F;concepts&#x2F;versions&#x2F;>
+                    <p>Versioning</p>
+
+                </a>
+            
+        </aside>
+    </footer>
+</main>
+
+
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://maxbondabe.github.io/sqigl/</loc>
+    </url>
+    <url>
+        <loc>https://maxbondabe.github.io/sqigl/concepts/</loc>
+    </url>
+    <url>
+        <loc>https://maxbondabe.github.io/sqigl/concepts/artifacts/</loc>
+    </url>
+    <url>
+        <loc>https://maxbondabe.github.io/sqigl/concepts/build/</loc>
+    </url>
+    <url>
+        <loc>https://maxbondabe.github.io/sqigl/concepts/compatability/</loc>
+    </url>
+    <url>
+        <loc>https://maxbondabe.github.io/sqigl/concepts/project/</loc>
+    </url>
+    <url>
+        <loc>https://maxbondabe.github.io/sqigl/concepts/versions/</loc>
+    </url>
+    <url>
+        <loc>https://maxbondabe.github.io/sqigl/getting-started/</loc>
+    </url>
+    <url>
+        <loc>https://maxbondabe.github.io/sqigl/getting-started/environment/</loc>
+    </url>
+    <url>
+        <loc>https://maxbondabe.github.io/sqigl/getting-started/migrating-to-sqigl/</loc>
+    </url>
+</urlset>
