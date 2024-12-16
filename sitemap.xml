@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://maxbondabe.github.io/sqigl/</loc>
+        <loc>https://maxbondabe.github.io/</loc>
     </url>
     <url>
-        <loc>https://maxbondabe.github.io/sqigl/concepts/</loc>
+        <loc>https://maxbondabe.github.io/concepts/</loc>
     </url>
     <url>
-        <loc>https://maxbondabe.github.io/sqigl/concepts/artifacts/</loc>
+        <loc>https://maxbondabe.github.io/concepts/artifacts/</loc>
     </url>
     <url>
-        <loc>https://maxbondabe.github.io/sqigl/concepts/build/</loc>
+        <loc>https://maxbondabe.github.io/concepts/build/</loc>
     </url>
     <url>
-        <loc>https://maxbondabe.github.io/sqigl/concepts/compatability/</loc>
+        <loc>https://maxbondabe.github.io/concepts/compatability/</loc>
     </url>
     <url>
-        <loc>https://maxbondabe.github.io/sqigl/concepts/project/</loc>
+        <loc>https://maxbondabe.github.io/concepts/project/</loc>
     </url>
     <url>
-        <loc>https://maxbondabe.github.io/sqigl/concepts/versions/</loc>
+        <loc>https://maxbondabe.github.io/concepts/versions/</loc>
     </url>
     <url>
-        <loc>https://maxbondabe.github.io/sqigl/getting-started/</loc>
+        <loc>https://maxbondabe.github.io/getting-started/</loc>
     </url>
     <url>
-        <loc>https://maxbondabe.github.io/sqigl/getting-started/environment/</loc>
+        <loc>https://maxbondabe.github.io/getting-started/environment/</loc>
     </url>
     <url>
-        <loc>https://maxbondabe.github.io/sqigl/getting-started/migrating-to-sqigl/</loc>
+        <loc>https://maxbondabe.github.io/getting-started/migrating-to-sqigl/</loc>
     </url>
 </urlset>
